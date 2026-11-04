@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Apri la verifica</title>
+  <style>
+    body {
+      max-width: 36rem;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      font-family: system-ui, sans-serif;
+      line-height: 1.5;
+      color: #1f2937;
+    }
+    .apri-verifica {
+      display: inline-block;
+      padding: 0.65rem 1rem;
+      border-radius: 0.4rem;
+      background: #1d4ed8;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    aside {
+      margin-top: 3rem;
+      text-align: right;
+    }
+    .soluzioni {
+      display: inline-block;
+      padding: 0.4rem 0.65rem;
+      border: 1px solid #d1d5db;
+      border-radius: 0.35rem;
+      background: #f9fafb;
+      color: #4b5563;
+      font-size: 0.85rem;
+      text-decoration: none;
+    }
+    a:focus-visible {
+      outline: 3px solid #2563eb;
+      outline-offset: 3px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>La verifica sta per iniziare</h1>
+    <p>La pagina della verifica si aprirà automaticamente tra 10 secondi.</p>
+    <p>Se vuoi entrare subito, seleziona il pulsante qui sotto.</p>
+    <a id="apri-verifica" class="apri-verifica">Apri la verifica</a>
+    <noscript>Per aprire la verifica, abilita JavaScript nel browser.</noscript>
+  </main>
+  <aside aria-label="Collegamento aggiuntivo">
+    <a id="soluzioni" class="soluzioni" target="_blank" rel="noopener noreferrer" aria-label="Mostra le soluzioni, si apre in una nuova scheda">Mostra le soluzioni ↗</a>
+  </aside>
+  <script>
+    // Segnaposto Rickroll: sostituire questo indirizzo, codificato in Base64, con il link della verifica Onlitest codificato nello stesso modo.
+    const URL_VERIFICA_BASE64 = "aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1kUXc0dzlXZ1hjUQ==";
+    const URL_SOLUZIONI_BASE64 = "aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1kUXc0dzlXZ1hjUQ==";
+    const decodificaLink = valore => new TextDecoder().decode(
+      Uint8Array.from(atob(valore), carattere => carattere.charCodeAt(0))
+    );
+    const URL_VERIFICA = decodificaLink(URL_VERIFICA_BASE64);
+
+    document.getElementById("apri-verifica").href = URL_VERIFICA;
+    document.getElementById("soluzioni").href = decodificaLink(URL_SOLUZIONI_BASE64);
+    window.setTimeout(() => window.location.replace(URL_VERIFICA), 10000);
+  </script>
+</body>
+</html>
