@@ -8,7 +8,7 @@
     body {
       max-width: 36rem;
       margin: 3rem auto;
-      padding: 0 1rem;
+      padding: 0 1rem 5rem;
       font-family: system-ui, sans-serif;
       line-height: 1.5;
       color: #1f2937;
@@ -23,7 +23,9 @@
       font-weight: 600;
     }
     aside {
-      margin-top: 3rem;
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
       text-align: right;
     }
     .soluzioni {
@@ -44,9 +46,8 @@
 </head>
 <body>
   <main>
-    <h1>La verifica sta per iniziare</h1>
-    <p>La pagina della verifica si aprirà automaticamente tra 10 secondi.</p>
-    <p>Se vuoi entrare subito, seleziona il pulsante qui sotto.</p>
+    <h1>Accesso alla verifica</h1>
+    <p>Seleziona il pulsante qui sotto per aprire la verifica.</p>
     <a id="apri-verifica" class="apri-verifica">Apri la verifica</a>
     <noscript>Per aprire la verifica, abilita JavaScript nel browser.</noscript>
   </main>
@@ -64,7 +65,6 @@
 
     document.getElementById("apri-verifica").href = URL_VERIFICA;
     document.getElementById("soluzioni").href = decodificaLink(URL_SOLUZIONI_BASE64);
-    window.setTimeout(() => window.location.replace(URL_VERIFICA), 10000);
   </script>
 </body>
 </html>
